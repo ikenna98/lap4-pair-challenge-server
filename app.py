@@ -32,15 +32,14 @@ def index():
             shortened_url = data["shortLink"]
             print("Shortened URL:", shortened_url)
             urls.append(shortened_url)
+            conn = get_db_connection()
+            conn.execute("INSERT INTO shortURL (URL, shortURL) VALUES (?, ?)", (new_url[0], shortened_url))
+            conn.commit()
+            conn.close() 
         else:
             print("[!] Error Shortening URL:", data)
 
-
-
-        """ conn = get_db_connection()
-        new_row = conn.execute("INSERT INTO shortURL (URL, shortURL) VALUES (?, ?)", (new_url[0], shortened_url))
-        conn.commit()
-        conn.close() """
+        
 
         return render_template('home.html', title='POKEMON', urls=urls)    
     else:
