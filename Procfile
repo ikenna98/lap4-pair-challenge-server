@@ -1,1 +1,1 @@
-web: waitress-serve shorter-urls-4all:app
+web: flask db upgrade; flask translate compile; gunicorn app:app
