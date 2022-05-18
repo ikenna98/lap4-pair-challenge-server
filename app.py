@@ -31,7 +31,7 @@ def index():
             # OK, get shortened URL
             shortened_url = data["shortLink"]
             print("Shortened URL:", shortened_url)
-            urls.append(shortened_url)
+            # urls.append(shortened_url)
             conn = get_db_connection()
             conn.execute("INSERT INTO shortURL (URL, shortURL) VALUES (?, ?)", (new_url[0], shortened_url))
             conn.commit()
