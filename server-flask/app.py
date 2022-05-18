@@ -56,6 +56,6 @@ def urls():
 
 
 if __name__ == '__main__':
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + shortUrl.db
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://ibghkncwtmzxqn:6c35c0e3a7d3d30b1908d2fb577ecd4345d948763ea50770b98daeab30ce04d5@ec2-52-3-2-245.compute-1.amazonaws.com:5432/d7rmh0k2u9kv2i'
     app.run()
 
