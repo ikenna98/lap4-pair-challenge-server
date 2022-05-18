@@ -8,6 +8,8 @@ app = Flask(__name__)
 api_key = "e4be59005046fe7d0c8a37e05bca772e5c72e"
 url = "https://www.thepythoncode.com/topic/using-apis-in-python"
 
+urls = [[1, 'google', 'wwww.google.com'], [1, 'google', 'wwww.google.com'], [1, 'google', 'wwww.google.com']]
+
 def get_db_connection():
     conn = sqlite3.connect('URL.db')
     conn.row_factory = sqlite3.Row
@@ -29,14 +31,17 @@ def index():
             # OK, get shortened URL
             shortened_url = data["shortLink"]
             print("Shortened URL:", shortened_url)
-            return shortened_url
+            urls.append(shortened_url)
+            return
         else:
             print("[!] Error Shortening URL:", data)
 
-        conn = get_db_connection()
+
+
+        """ conn = get_db_connection()
         new_row = conn.execute("INSERT INTO shortURL (URL, shortURL) VALUES (?, ?)", (new_url[0], shortened_url))
         conn.commit()
-        conn.close()
+        conn.close() """
 
         return render_template('home.html', title='POKEMON', urls=urls)    
     else:
