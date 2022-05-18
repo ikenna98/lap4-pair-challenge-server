@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request, Response
+from flask import Flask, render_template, redirect, url_for, request, Response, jsonify
 import sqlite3
 import requests
 #werkzeug error codes custom
@@ -39,11 +39,22 @@ def index():
         else:
             print("[!] Error Shortening URL:", data)
 
-        
+        return render_template('home.html', title='POKEMON', urls=urls)
 
-        return render_template('home.html', title='POKEMON', urls=urls)    
     else:
         return render_template('home.html', title='POKEMON', urls=urls)
+
+@app.route('/urls')
+def urls():
+    conn = get_db_connection()
+    posts = conn.execute('SELECT * FROM shortURL').fetchall()
+    conn.close()
+    url_list = []
+    def render_stuff():
+        for p in posts:
+            url_list.append({'id': p['id'], 'URL': p['URL'], 'shortURL':p['shortURL']})
+    render_stuff()
+    return jsonify(url_list)
 
 
 if __name__ == '__main__':
