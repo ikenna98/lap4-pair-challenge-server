@@ -1,9 +1,11 @@
 from flask import Flask, render_template, redirect, url_for, request, Response
 import sqlite3
+import requests
 #werkzeug error codes custom
 
 app = Flask(__name__)
 
+api_key = "e4be59005046fe7d0c8a37e05bca772e5c72e"
 
 def get_db_connection():
     conn = sqlite3.connect('URL.db')
