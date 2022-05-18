@@ -15,6 +15,7 @@ MarkupSafe==2.1.1
 mcpi==1.2.0
 pipenv==2022.5.2
 platformdirs==2.5.2
+psycopg2==2.9.3
 pytz==2020.1
 six==1.16.0
 sqlparse==0.3.1
