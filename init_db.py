@@ -15,15 +15,3 @@ cur.execute("INSERT INTO shortURL (URL, shortURL) VALUES (?, ?)",
 connection.commit()
 connection.close()
 
-
-
-
-'''
-
-INSERT INTO pokemon (name, type, level)
-VALUES 
-    ('Pikachu', 'electric', 16)
-    ('Magikarp', 'water', 88)
-    ('Psyduck', 'psychic', 34)
-
-'''
