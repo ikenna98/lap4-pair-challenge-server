@@ -24,7 +24,7 @@ def index():
 
         print(new_url[0])
         
-        api_url = f"https://cutt.ly/api/api.php?key={api_key}&short={new_url}"
+        api_url = f"https://cutt.ly/api/api.php?key={api_key}&short={new_url[0]}"
         
         data = requests.get(api_url).json()["url"]
         if data["status"] == 7:
@@ -32,7 +32,6 @@ def index():
             shortened_url = data["shortLink"]
             print("Shortened URL:", shortened_url)
             urls.append(shortened_url)
-            return
         else:
             print("[!] Error Shortening URL:", data)
 
