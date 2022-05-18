@@ -8,7 +8,7 @@ app = Flask(__name__)
 api_key = "e4be59005046fe7d0c8a37e05bca772e5c72e"
 url = "https://www.thepythoncode.com/topic/using-apis-in-python"
 
-urls = [[1, 'google', 'wwww.google.com'], [1, 'google', 'wwww.google.com'], [1, 'google', 'wwww.google.com']]
+# urls = [[1, 'google', 'wwww.google.com'], [1, 'google', 'wwww.google.com'], [1, 'google', 'wwww.google.com']]
 
 def get_db_connection():
     conn = sqlite3.connect('shortURL.db')
@@ -56,8 +56,6 @@ def urls():
 
 
 if __name__ == '__main__':
-    app.config['SECRET_KEY'] = 'your secret key'
-    app.config['SESSION_TYPE'] = 'filesystem'
-    app.config['TRAP_HTTP_EXCEPTIONS']=True
-    app.run(debug=True)
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + shortUrl.db
+    app.run()
 
