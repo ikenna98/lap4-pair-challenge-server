@@ -11,7 +11,7 @@ url = "https://www.thepythoncode.com/topic/using-apis-in-python"
 urls = [[1, 'google', 'wwww.google.com'], [1, 'google', 'wwww.google.com'], [1, 'google', 'wwww.google.com']]
 
 def get_db_connection():
-    conn = sqlite3.connect('URL.db')
+    conn = sqlite3.connect('shortURL.db')
     conn.row_factory = sqlite3.Row
     return conn
 
@@ -50,10 +50,8 @@ def urls():
     posts = conn.execute('SELECT * FROM shortURL').fetchall()
     conn.close()
     url_list = []
-    def render_stuff():
-        for p in posts:
-            url_list.append({'id': p['id'], 'URL': p['URL'], 'shortURL':p['shortURL']})
-    render_stuff()
+    for p in posts:
+        url_list.append({'id': p['id'], 'URL': p['URL'], 'shortURL':p['shortURL']})
     return jsonify(url_list)
 
 
