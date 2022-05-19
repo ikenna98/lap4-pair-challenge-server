@@ -9,9 +9,9 @@
 - [] 
 
 ## TO DO
-- [] front end
-- [] custom error handling
-- [] testing
+- [x] front end
+- [x] custom error handling
+- [x] testing
 
 ## Wins & Challenges
 # Wins
